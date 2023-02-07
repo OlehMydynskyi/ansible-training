@@ -1,0 +1,30 @@
+---
+- name: Install default Apache Web Server
+  hosts: all
+  become: yes
+
+  vars:
+    source_dir: ./html
+    destin_dir: /var/www
+
+
+  tasks:
+  - name: Update system
+    apt:
+     update_cache: true
+     cache_valid_time: 3600
+     force_apt_get: true
+
+  - name: Install Apache Web Server
+    apt: name=apache2 state=latest
+
+  - name: Copy App to Servers
+    synchronize: src={{ source_dir }} dest={{ destin_dir }}
+    notify: Restart Apache
+
+  - name: Start Apache and Enable it on the every boot
+    service: name=apache2 state=started enabled=yes
+
+  handlers:
+  - name: Restart Apache
+    service: name=apache2 state=restarted
