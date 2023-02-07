@@ -1,4 +1,0 @@
-[staging_servers]
-ubuntu1 ansible_host=18.193.116.71 ansible_user=ubuntu ansible_ssh_private_key_file=key-pairs/frankfurt-key.pem
-ubuntu2 ansible_host=54.93.241.250 ansible_user=ubuntu ansible_ssh_private_key_file=key-pairs/frankfurt-key.pem
-
