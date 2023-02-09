@@ -1,0 +1,4 @@
+---
+# vars file for deploy_web_page
+source_dir: ./html
+destin_dir: /var/www

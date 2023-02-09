@@ -1,0 +1,7 @@
+---
+# handlers file for deploy_web_page
+- name: Restart Apache in RedHat
+  service: name=httpd state=restarted
+
+- name: Restart Apache in Debian
+  service: name=apache2 state=restarted
